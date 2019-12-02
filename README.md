@@ -1,0 +1,2 @@
+# crawling_scraping-scrapy_tool
+scrapyを用いたcrawling/scrapingの為のツール
