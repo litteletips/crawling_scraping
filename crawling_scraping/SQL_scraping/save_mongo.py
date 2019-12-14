@@ -1,3 +1,8 @@
+# mongoを使ったDB保存
+
+# 実行方法
+# python save_mongo.py
+
 import lxml.html
 from pymongo import MongoClient
 
