@@ -1,3 +1,11 @@
+# Requestsの拡張、Requests-HTMLを使って、Webページの取得からスクレイピングまで行えるライブラリ。
+# lxmlとpyqueryのラッパーで、スクレイピングのための便利なメソッドを備えている。。
+
+# render()メソッドは、Pyppeteerを使って現在のページをレンダリングし、その結果のHTMLをスクレイピング対象にする。
+
+# 実行方法
+# python requests_html_note.py
+
 from requests_html import HTMLSession  # pip install requests-html
 
 session = HTMLSession()  # HTMLSessionはRequestsのSessionと同じように使える。

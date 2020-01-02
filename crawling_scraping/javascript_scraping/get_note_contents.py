@@ -1,3 +1,10 @@
+# JavaScriptを使ったWebサイトの「note」をスクレイピング
+# noteのログインしていない状態のおすすめコンテンツ、タイトル・URL・概要を抜き出す。
+# ページ下までいくと続きのコンテンツが読み込まれる無限スクロール。
+
+# 実行方法
+# python get_note_contents.py
+
 import logging
 from typing import List  # 型ヒントのためにインポート
 

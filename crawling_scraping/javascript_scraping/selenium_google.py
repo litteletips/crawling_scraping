@@ -1,3 +1,9 @@
+# SeleniumでGoogle検索を行う。
+# send_keys()メソッドでキーボード入力を送れる。
+
+# 実行方法
+# python selenium_google.py
+
 from selenium.webdriver import Chrome, ChromeOptions, Remote
 from selenium.webdriver.common.keys import Keys
 

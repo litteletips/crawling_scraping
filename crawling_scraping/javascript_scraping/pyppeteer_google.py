@@ -1,3 +1,12 @@
+# PyppeteerでGoogle検索を行う。
+# Pyppeteerはchromeを自動操作する為のNode.jsのライブラリであるpuppeteerは非同期処理を前提になっており、
+# Python3.5で導入されたasync/await構文を積極的に使用してる。
+
+# Pyppeteerのコルーチンを呼び出すときは、awaitキーワードを前につけると、非同期処理の実行結果を取得できる。
+
+# 実行方法
+# python pyppeteer_google.py
+
 import asyncio
 from pyppeteer import launch
 

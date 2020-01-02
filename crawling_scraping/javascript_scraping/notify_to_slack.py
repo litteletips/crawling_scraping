@@ -1,3 +1,9 @@
+# Likeの数が最も多いコンテンツをSlackに通知する。
+# 
+
+# 実行方法
+# python notify_to_slack.py
+
 import os
 import logging
 from typing import List  # 型ヒントのためにインポート
@@ -42,7 +48,7 @@ def navigate(driver: Remote):
     目的のページに遷移する。
     """
     logging.info('Navigating...')
-    driver.get('https://note.mu/')  # noteのトップページを開く。
+    driver.get('https://note.com/')  # noteのトップページを開く。
     assert 'note' in driver.title  # タイトルに'note'が含まれていることを確認する。
 
 
