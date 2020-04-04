@@ -1,0 +1,57 @@
+version: '3.7'
+services:
+  django:
+    restart: always
+    build: ./django
+    container_name: django_container
+    expose:
+      - "3031"
+    depends_on:
+      - postgres
+    command: "/usr/src/app/setup.sh"
+    volumes:
+      - "staticdata:/opt/static/"
+      - ./django:/usr/src/app
+
+  scraper:
+    container_name: scraper
+    build: ./django
+    depends_on:
+      - postgres
+    environment:
+      SCRAPY_START_INDEX: 22419
+      SCRAPY_NUM_ITEMS: 1000
+      SCRAPY_CONCURRENT_ITEMS: 10000
+      SCRAPY_CONCURRENT_REQUESTS: 2
+      SCRAPY_DOWNLOAD_DELAY: 8.0
+    volumes:
+      - "staticdata:/opt/static/"
+    entrypoint: /bin/bash
+    stdin_open: true
+    tty: true
+
+  nginx:
+    restart: always
+    image: nginx
+    container_name: nginx_container
+    depends_on:
+      - django
+    ports:
+      - "80:80"
+    volumes:
+      - "./nginx/:/etc/nginx/"
+      - "staticdata:/opt/apps/static/"
+
+  postgres:
+    image: postgres
+    container_name: postgres_container
+    ports:
+      - "5432:5432"
+    volumes:
+      - "dbdata:/var/lib/postgresql/data"
+    environment:
+      - POSTGRES_PASSWORD=osaki1choume
+
+volumes:
+  dbdata:
+  staticdata:
